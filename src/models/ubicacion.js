@@ -1,20 +1,19 @@
 module.exports = (sequelize, DataType) => {
 
-    const Raza = sequelize.define('Raza', {
-      Id_raza: {
+    const Ubicacion = sequelize.define('Ubicacion', {
+      Id_ubicacion: {
         type: DataType.BIGINT,
         primaryKey: true,
         autoIncrement: true
       },
       Descripcion: {
-        type: DataType.STRING(100),
+        type: DataType.STRING(50),
         allowNull: false,
       }
     });
   
-    Raza.associate = (models) => {
-        Raza.belongsTo(models.Animal, {foreignKey: "Id_animal"});
+    Ubicacion.associate = (models) => {
     };
   
-    return Raza;
+    return Ubicacion;
   };

@@ -1,28 +1,26 @@
 module.exports = app => {
 
-    const Usuario = app.db.models.Usuario;
+    const Ubicacion = app.db.models.Ubicacion;
   
-    app.route('/usuario')
+    app.route('/ubicacion')
       .get((req, res) => {
-        Usuario.findAll({})
+        Ubicacion.findAll({})
           .then(result => res.json(result))
           .catch(error => {
             res.status(412).json({msg: error.message});
           });
       })
       .post((req, res) => {
-        Usuario.create(req.body)
+        Ubicacion.create(req.body)
           .then(result => res.json(result))
           .catch(error => {
             res.status(412).json({msg: error.message});
           });
       });
-
-      
   
-      app.route('/usuario/:id')
+      app.route('/ubicacion/:id')
       .get((req, res) => {
-        Usuario.findOne({where: req.params})
+        Ubicacion.findOne({where: req.params})
           .then(result => {
             if (result) {
               res.json(result);
@@ -35,14 +33,14 @@ module.exports = app => {
           });
       })
       .put((req, res) => {
-        Usuario.update(req.body, {where: req.params})
+        Ubicacion.update(req.body, {where: req.params})
           .then(result => res.sendStatus(204))
           .catch(error => {
             res.status(412).json({msg: error.message});
           });
       })
       .delete((req, res) => {
-        Usuario.destroy({where: req.params})
+        Ubicacion.destroy({where: req.params})
           .then(result => res.sendStatus(204))
           .catch(error => {
             res.status(204).json({msg: error.message});
