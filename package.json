@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "build": " npm install @babel/cli -g && npm install @babel/core -g && babel src -d dist",
+    "build": "npm uninstall @babel/cli -g && npm uninstall @babel/core -g && npm install @babel/cli -g && npm install @babel/core -g && babel src -d dist",
     "start": "npm run build && nodemon dist/index.js",
     "serve": "npm run build && node dist/index.js",
     "test": "npm run build && mocha --require @babel/register"
